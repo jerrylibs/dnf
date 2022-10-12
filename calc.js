@@ -193,7 +193,13 @@ const jewelry = [
 		element: 60,
 		eAdd: 10,
 		skillA: [22],
-		name: "祈祷首饰",
+		name: "祈祷首饰-主属性",
+	},
+	{
+		element: 21,
+		eAdd: 10,
+		skillA: [22],
+		name: "祈祷首饰-副属性",
 	},
 	{
 		element: 8,
@@ -403,6 +409,7 @@ const lefts = [
 		power: 29,
 		add: 5,
 		powerP: 5,
+		increase: 5,
 		name: "护符",
 	},
 	{
