@@ -248,17 +248,20 @@ const jewelry = [
 		attackP: 30,
 		powerP: 12,
 		breaking: 30,
-		name: "罗魂黑",
+		element: -7,
+		name: "罗魂黑-破招",
 	},
 	{
 		attackP: 30,
 		powerP: 12,
+		element: -7,
 		name: "罗魂骨",
 	},
 	{
 		attackP: 30,
 		powerP: 12,
 		breaking: 50,
+		element: -7,
 		name: "罗魂骨破招",
 	},
 ];
@@ -453,7 +456,7 @@ function plus(arr) {
 }
 
 function skill(arr) {
-	return arr.length > 1 ? arr.reduce((a, b) => a / 100 + (1 * b) / 100 + 1) : arr.length == 1 ? arr[0] / 100 + 1 : 1;
+	return arr.length > 1 ? arr.reduce((a, b, index) => (index == 1 ? (a / 100 + 1) * (b / 100 + 1) : a * (b / 100 + 1))) : arr.length == 1 ? arr[0] / 100 + 1 : 1;
 }
 
 const result = [];
@@ -483,14 +486,13 @@ for (let i in armors) {
 					criticalA: extract("criticalA", model, armor, jewel, arm, left, plus),
 					criticalP: extract("criticalP", model, armor, jewel, arm, left, plus),
 					skillA: extract("skillA", model, armor, jewel, arm, left, (arr) => arr.flat()),
-					breaking: jewel.breaking || 25,
+					breaking: jewel.breaking || 0,
 					other: extract("other", model, armor, jewel, arm, left, (arr) => arr.join("+")),
 					name: extract("name", model, armor, jewel, arm, left, (arr) => arr.join("+")),
 				};
 				r.attack = arm.giant ? (r.attack + 560) * 1.1 : r.attack + 560;
-
+				// console.log(r.skillA);
 				r.hurt = (r.power * (r.powerP / 100 + 1) * 0.004 + 1) * (r.attack * (r.attackP / 100 + 1)) * (r.element / 220 + 1) * (((50 + r.criticalA) * (r.critical / 23 + 12 + r.criticalP)) / 100 / 100 + 1) * (((r.element / 220 + 1) * r.eAdd + r.add) / 100 + 1) * ((r.increase + (r.breaking || 0)) / 100 + 1) * skill(r.skillA) * (1 - (defensive - r.mitigation) / (65 * 200 + (defensive - r.mitigation)));
-
 				result.push(r);
 			}
 		}
@@ -498,5 +500,5 @@ for (let i in armors) {
 }
 result.sort((a, b) => b.hurt - a.hurt);
 for (let item of result) {
-	console.log(((item.hurt / result[0].hurt) * 100).toFixed(2) + "%", item.name);
+	console.log(((item.hurt / result[0].hurt) * 100).toFixed(2) + "%", item.name, item.skillA);
 }
