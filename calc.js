@@ -500,5 +500,5 @@ for (let i in armors) {
 }
 result.sort((a, b) => b.hurt - a.hurt);
 for (let item of result) {
-	console.log(((item.hurt / result[0].hurt) * 100).toFixed(2) + "%", item.name, item.skillA);
+	console.log(((item.hurt / result[0].hurt) * 100).toFixed(2) + "%", item.name);
 }

@@ -1,0 +1,23 @@
+{
+	"name": "dnf",
+	"version": "1.0.0",
+	"description": "dnf",
+	"main": "calc.js",
+	"scripts": {
+		"start": "node calc.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jerrylibs/-----.git"
+	},
+	"keywords": [
+		"dnf",
+		"calc"
+	],
+	"author": "d",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jerrylibs/-----/issues"
+	},
+	"homepage": "https://github.com/jerrylibs/-----#readme"
+}
