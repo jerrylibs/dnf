@@ -195,12 +195,7 @@ const jewelry = [
 		skillA: [22],
 		name: "祈祷首饰-主属性",
 	},
-	{
-		element: 21,
-		eAdd: 10,
-		skillA: [22],
-		name: "祈祷首饰-副属性",
-	},
+
 	{
 		element: 8,
 		add: 11,
