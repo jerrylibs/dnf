@@ -39,7 +39,7 @@ const armors = [
 		mitigation: -14000,
 		add: 16,
 		increase: 10,
-		skillA: [10, 2.5],
+		skillA: [10, 3],
 		other: `10~20+2`,
 		name: "燃烧的深海",
 	},
@@ -47,7 +47,7 @@ const armors = [
 		element: 12,
 		add: 20,
 		increase: 16,
-		skillA: [11, 8, 3],
+		skillA: [11, 8, 5],
 		other: `随机冷却
 -8%CD`,
 		name: "玄冥精灵",
@@ -66,7 +66,7 @@ const armors = [
 		powerP: 8,
 		criticalA: 44,
 		other: `10~30+2`,
-		skillA: [2],
+		skillA: [4],
 		name: "暗黑中的先知-暴击",
 	},
 	{
@@ -75,7 +75,7 @@ const armors = [
 		powerP: 26,
 		criticalA: 14,
 		other: `10~30+2`,
-		skillA: [2],
+		skillA: [4],
 		name: "暗黑中的先知-力智",
 	},
 	{
@@ -84,7 +84,7 @@ const armors = [
 		powerP: 8,
 		criticalA: 14,
 		other: `10~30+2`,
-		skillA: [2],
+		skillA: [4],
 		name: "暗黑中的先知-附加",
 	},
 	{
@@ -122,13 +122,12 @@ const armors = [
 	{
 		increase: 26,
 		powerP: 30,
-		skillA: [6, 11],
+		skillA: [6, 11, 9],
 		other: `45+1
 35+1
 10+1
 40+1
 50+2"`,
-		skillA: [6],
 		name: "假面艾萨克",
 	},
 	{
@@ -228,7 +227,7 @@ const jewelry = [
 		attackP: 12,
 		powerP: 17,
 		other: `50+1`,
-		skillA: [2],
+		skillA: [4],
 		name: "深海",
 	},
 	{
@@ -492,7 +491,7 @@ for (let i in armors) {
 					other: extract("other", model, armor, jewel, arm, left, (arr) => arr.join("+")),
 					name: extract("name", model, armor, jewel, arm, left, (arr) => arr.join("+")),
 				};
-				r.attack = arm.giant ? (r.attack + 560) * 1.1 : r.attack + 560;
+				r.attack = arm.giant ? r.attack + 560 * 1.1 : r.attack + 560;
 				// console.log(r.skillA);
 				r.hurt = (r.power * (r.powerP / 100 + 1) * 0.004 + 1) * (r.attack * (r.attackP / 100 + 1)) * (r.element / 220 + 1) * (((50 + r.criticalA) * (r.critical / 23 + 12 + r.criticalP)) / 100 / 100 + 1) * (((r.element / 220 + 1) * r.eAdd + r.add) / 100 + 1) * ((r.increase + (r.breaking || 0)) / 100 + 1) * skill(r.skillA) * (1 - (defensive - r.mitigation) / (65 * 200 + (defensive - r.mitigation)));
 				result.push(r);
