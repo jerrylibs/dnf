@@ -1,3 +1,56 @@
+const models = {
+	asura: {
+		power: 3151,
+		element: 160,
+		attack: 140,
+		critical: 780,
+		criticalP: 13,
+		criticalA: 27.5,
+		add: 18,
+		increase: 16,
+		attackP: 5,
+		skillA: 22,
+	},
+	berserker: {
+		power: 3093,
+		element: 160,
+		attack: 140,
+		critical: 780,
+		criticalP: 13,
+		criticalA: 0,
+		add: 18,
+		increase: 16,
+		attackP: 20.7,
+		skillA: 23,
+	},
+	master: {
+		power: 3000,
+		element: 160,
+		attack: 140,
+		critical: 780,
+		criticalP: 26.4,
+		criticalA: 0,
+		add: 18,
+		increase: 16,
+		attackP: 16,
+		skillA: 32.5,
+	},
+	ghost: {
+		power: 3170,
+		element: 160,
+		attack: 140,
+		critical: 780,
+		criticalP: 13,
+		criticalA: 0,
+		add: 18,
+		increase: 16,
+		attackP: 5,
+		skillA: 21,
+	},
+};
+
+const model = models.asura;
+
 const armors = [
 	{
 		increase: 35,
@@ -39,7 +92,7 @@ const armors = [
 		mitigation: -14000,
 		add: 16,
 		increase: 10,
-		skillA: [10, 3],
+		skillA: [10, 4],
 		other: `10~20+2`,
 		name: "燃烧的深海",
 	},
@@ -184,7 +237,7 @@ const armors = [
 		powerP: 6,
 		skillA: [8],
 		name: "千年玄铁",
-		disable: ["千年之光", "梵天剑"],
+		disable: ["千年之光", "梵天剑", "梵天剑-红眼剑魔"],
 	},
 ];
 const jewelry = [
@@ -227,7 +280,7 @@ const jewelry = [
 		attackP: 12,
 		powerP: 17,
 		other: `50+1`,
-		skillA: [4],
+		skillA: [3],
 		name: "深海",
 	},
 	{
@@ -242,30 +295,70 @@ const jewelry = [
 		element: 9,
 		attackP: 30,
 		powerP: 5,
+		skillA: [3],
 		name: "罗魂罗",
 	},
+
 	{
 		attackP: 30,
 		powerP: 12,
 		breaking: 30,
 		element: -7,
 		name: "罗魂黑-破招",
+		critical: -50,
+		disable: ["千年之光", "无轩", "血之挽歌", "邪龙魔剑", "幸存者", "梵天剑", "焚天剑-红眼剑魔"],
 	},
 	{
 		attackP: 30,
-		powerP: 12,
+		add: 11,
+		breaking: 30,
 		element: -7,
-		name: "罗魂骨",
+		name: "G魂黑-破招",
+		critical: -50,
+		disable: ["千年之光", "无轩", "血之挽歌", "邪龙魔剑", "幸存者", "梵天剑", "焚天剑-红眼剑魔"],
 	},
-	{
-		attackP: 30,
-		powerP: 12,
-		breaking: 50,
-		element: -7,
-		name: "罗魂骨破招",
-	},
+	// {
+	// 	attackP: 30,
+	// 	powerP: 12,
+	// 	element: -7,
+	// 	name: "罗魂黑",
+	// 	critical: -50,
+	// 	disable: ["千年之光", "无轩", "血之挽歌", "邪龙魔剑", "幸存者", "梵天剑", "焚天剑-红眼剑魔"],
+	// },
+	// {
+	// 	attackP: 30,
+	// 	powerP: 12,
+	// 	element: -7,
+	// 	name: "罗魂骨",
+	// 	disable: ["破碎", "戾波尖啸", "雷鸣剑"],
+	// },
+	// {
+	// 	attackP: 30,
+	// 	powerP: 12,
+	// 	breaking: 50,
+	// 	element: -7,
+	// 	name: "罗魂骨破招",
+	// 	disable: ["破碎", "戾波尖啸", "雷鸣剑"],
+	// },
 ];
 const arms = [
+	// {
+	// 	power: 75,
+	// 	attack: 878,
+	// 	criticalA: 22,
+	// 	element: 22,
+	// 	powerP: 22,
+	// 	giant: true,
+	// 	name: "双星",
+	// },
+	// {
+	// 	power: 75,
+	// 	attack: 878,
+	// 	increase: 50,
+	// 	element: 18,
+	// 	giant: true,
+	// 	name: "碎空",
+	// },
 	{
 		power: 75,
 		attack: 812,
@@ -317,26 +410,26 @@ const arms = [
 		giant: true,
 		name: "雷鸣剑",
 	},
-	{
-		power: 50,
-		element: 32,
-		attack: 835,
-		powerP: 10,
-		criticalP: 5,
-		skillA: [30],
-		giant: true,
-		name: "升级团武-属强",
-	},
-	{
-		power: 50,
-		attack: 835,
-		attackP: 15,
-		powerP: 10,
-		criticalP: 5,
-		skillA: [30],
-		giant: true,
-		name: "升级团武双攻",
-	},
+	// {
+	// 	power: 50,
+	// 	element: 32,
+	// 	attack: 835,
+	// 	powerP: 10,
+	// 	criticalP: 5,
+	// 	skillA: [30],
+	// 	giant: true,
+	// 	name: "升级团武-属强",
+	// },
+	// {
+	// 	power: 50,
+	// 	attack: 835,
+	// 	attackP: 15,
+	// 	powerP: 10,
+	// 	criticalP: 5,
+	// 	skillA: [30],
+	// 	giant: true,
+	// 	name: "升级团武双攻",
+	// },
 	{
 		power: 50,
 		attack: 791,
@@ -346,57 +439,57 @@ const arms = [
 		skillA: [2],
 		name: "千年之光",
 	},
-	{
-		power: 50,
-		attack: 791,
-		criticalP: 5,
-		critical: 143,
-		add: 33,
-		attackP: 20,
-		name: "无轩",
-	},
-	{
-		power: 50,
-		attack: 791,
-		criticalP: 8,
-		critical: 100,
-		criticalA: 30,
-		increase: 20,
-		name: "血之挽歌",
-	},
-	{
-		power: 75,
-		element: 130,
-		critical: 2,
-		attack: 857,
-		giant: true,
-		name: "邪龙魔剑",
-	},
-	{
-		power: 75,
-		attack: 857,
-		critical: 2,
-		increase: 65,
-		giant: true,
-		name: "幸存者",
-	},
-	{
-		power: 75,
-		attack: 857,
-		critical: 2,
-		eAdd: 25,
-		giant: true,
-		name: "梵天剑",
-	},
-	{
-		power: 75,
-		attack: 857,
-		critical: 2,
-		element: 35,
-		eAdd: 25,
-		giant: true,
-		name: "梵天剑-红眼剑魔",
-	},
+	// {
+	// 	power: 50,
+	// 	attack: 791,
+	// 	criticalP: 5,
+	// 	critical: 143,
+	// 	add: 33,
+	// 	attackP: 20,
+	// 	name: "无轩",
+	// },
+	// {
+	// 	power: 50,
+	// 	attack: 791,
+	// 	criticalP: 8,
+	// 	critical: 100,
+	// 	criticalA: 30,
+	// 	increase: 20,
+	// 	name: "血之挽歌",
+	// },
+	// {
+	// 	power: 75,
+	// 	element: 130,
+	// 	critical: 2,
+	// 	attack: 857,
+	// 	giant: true,
+	// 	name: "邪龙魔剑",
+	// },
+	// {
+	// 	power: 75,
+	// 	attack: 857,
+	// 	critical: 2,
+	// 	increase: 65,
+	// 	giant: true,
+	// 	name: "幸存者",
+	// },
+	// {
+	// 	power: 75,
+	// 	attack: 857,
+	// 	critical: 2,
+	// 	eAdd: 25,
+	// 	giant: true,
+	// 	name: "梵天剑",
+	// },
+	// {
+	// 	power: 75,
+	// 	attack: 857,
+	// 	critical: 2,
+	// 	element: 35,
+	// 	eAdd: 25,
+	// 	giant: true,
+	// 	name: "梵天剑-红眼剑魔",
+	// },
 ];
 const lefts = [
 	{
@@ -421,15 +514,6 @@ const lefts = [
 		name: "西岚",
 	},
 ];
-const model = {
-	power: 3500,
-	element: 160,
-	attack: 140,
-	critical: 780,
-	add: 18,
-	increase: 16,
-	attackP: 5,
-};
 
 function extract(key, model, armor, jewel, arm, left, callback) {
 	let num = [];
@@ -468,7 +552,7 @@ for (let i in armors) {
 		let jewel = jewelry[j];
 		for (let k in arms) {
 			let arm = arms[k];
-			if (armor.disable && armor.disable.includes(arm.name)) {
+			if ((armor.disable && armor.disable.includes(arm.name)) || (jewel.disable && jewel.disable.includes(arm.name))) {
 				continue;
 			}
 			for (let l in lefts) {
@@ -486,14 +570,14 @@ for (let i in armors) {
 					powerP: extract("powerP", model, armor, jewel, arm, left, plus),
 					criticalA: extract("criticalA", model, armor, jewel, arm, left, plus),
 					criticalP: extract("criticalP", model, armor, jewel, arm, left, plus),
-					skillA: extract("skillA", model, armor, jewel, arm, left, (arr) => arr.flat()),
+					skillA: extract("skillA", {}, armor, jewel, arm, left, (arr) => arr.flat()),
 					breaking: jewel.breaking || 0,
 					other: extract("other", model, armor, jewel, arm, left, (arr) => arr.join("+")),
 					name: extract("name", model, armor, jewel, arm, left, (arr) => arr.join("+")),
 				};
-				r.attack = arm.giant ? r.attack + 560 * 1.1 : r.attack + 560;
-				// console.log(r.skillA);
-				r.hurt = (r.power * (r.powerP / 100 + 1) * 0.004 + 1) * (r.attack * (r.attackP / 100 + 1)) * (r.element / 220 + 1) * (((50 + r.criticalA) * (r.critical / 23 + 12 + r.criticalP)) / 100 / 100 + 1) * (((r.element / 220 + 1) * r.eAdd + r.add) / 100 + 1) * ((r.increase + (r.breaking || 0)) / 100 + 1) * skill(r.skillA) * (1 - (defensive - r.mitigation) / (65 * 200 + (defensive - r.mitigation)));
+				r.attack = arm.giant ? r.attack + 560 * 1.07 : r.attack + 560;
+				let skillA = skill(r.skillA) + model.skillA / 100;
+				r.hurt = (r.power * (r.powerP / 100 + 1) * 0.004 + 1) * (r.attack * (r.attackP / 100 + 1)) * (r.element / 220 + 1) * (((50 + r.criticalA) * (r.critical / 23 + r.criticalP)) / 100 / 100 + 1) * (((r.element / 220 + 1) * r.eAdd + r.add) / 100 + 1) * ((r.increase + (r.breaking || 0)) / 100 + 1) * skillA * (1 - (defensive - r.mitigation) / (65 * 200 + (defensive - r.mitigation)));
 				result.push(r);
 			}
 		}
