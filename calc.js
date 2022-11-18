@@ -10,6 +10,7 @@ const models = {
 		increase: 16,
 		attackP: 5,
 		skillA: 22,
+		arms: ["currency", "dagger", "knife"],
 	},
 	berserker: {
 		power: 3093,
@@ -22,6 +23,7 @@ const models = {
 		increase: 16,
 		attackP: 20.7,
 		skillA: 23,
+		arms: ["currency", "knife", "huge"],
 	},
 	master: {
 		power: 3000,
@@ -34,6 +36,7 @@ const models = {
 		increase: 16,
 		attackP: 16,
 		skillA: 32.5,
+		arms: ["currency", "knife", "huge", "light"],
 	},
 	ghost: {
 		power: 3170,
@@ -46,10 +49,11 @@ const models = {
 		increase: 16,
 		attackP: 5,
 		skillA: 21,
+		arms: ["currency", "dagger", "knife"],
 	},
 };
 
-const model = models.asura;
+const model = models.ghost;
 
 const armors = [
 	{
@@ -317,29 +321,29 @@ const jewelry = [
 		critical: -50,
 		disable: ["千年之光", "无轩", "血之挽歌", "邪龙魔剑", "幸存者", "梵天剑", "焚天剑-红眼剑魔"],
 	},
-	// {
-	// 	attackP: 30,
-	// 	powerP: 12,
-	// 	element: -7,
-	// 	name: "罗魂黑",
-	// 	critical: -50,
-	// 	disable: ["千年之光", "无轩", "血之挽歌", "邪龙魔剑", "幸存者", "梵天剑", "焚天剑-红眼剑魔"],
-	// },
-	// {
-	// 	attackP: 30,
-	// 	powerP: 12,
-	// 	element: -7,
-	// 	name: "罗魂骨",
-	// 	disable: ["破碎", "戾波尖啸", "雷鸣剑"],
-	// },
-	// {
-	// 	attackP: 30,
-	// 	powerP: 12,
-	// 	breaking: 50,
-	// 	element: -7,
-	// 	name: "罗魂骨破招",
-	// 	disable: ["破碎", "戾波尖啸", "雷鸣剑"],
-	// },
+	{
+		attackP: 30,
+		powerP: 12,
+		element: -7,
+		name: "罗魂黑",
+		critical: -50,
+		disable: ["千年之光", "无轩", "血之挽歌", "邪龙魔剑", "幸存者", "梵天剑", "焚天剑-红眼剑魔"],
+	},
+	{
+		attackP: 30,
+		powerP: 12,
+		element: -7,
+		name: "罗魂骨",
+		disable: ["破碎", "戾波尖啸", "雷鸣剑"],
+	},
+	{
+		attackP: 30,
+		powerP: 12,
+		breaking: 50,
+		element: -7,
+		name: "罗魂骨破招",
+		disable: ["破碎", "戾波尖啸", "雷鸣剑"],
+	},
 ];
 const arms = [
 	// {
@@ -360,30 +364,34 @@ const arms = [
 	// 	name: "碎空",
 	// },
 	{
+		type: "knife",
 		power: 75,
-		attack: 812,
+		attack: 787,
 		increase: 40,
 		criticalA: 23,
 		criticalP: 3,
 		name: "血月",
 	},
 	{
+		type: "knife",
 		power: 75,
-		attack: 812,
+		attack: 787,
 		powerP: 25,
 		criticalA: 60,
 		criticalP: 3,
 		name: "混血刀",
 	},
 	{
+		type: "knife",
 		power: 75,
-		attack: 812,
+		attack: 787,
 		criticalP: 3,
 		add: 50,
 		powerP: 7,
 		name: "屠戮",
 	},
 	{
+		type: "knife",
 		power: 50,
 		attack: 835,
 		add: 50,
@@ -393,6 +401,7 @@ const arms = [
 		name: "破碎",
 	},
 	{
+		type: "dagger",
 		power: 50,
 		attack: 835,
 		mitigation: 6700,
@@ -402,6 +411,7 @@ const arms = [
 		name: "戾波尖啸",
 	},
 	{
+		type: "dagger",
 		power: 50,
 		attack: 835,
 		add: 29,
@@ -410,27 +420,30 @@ const arms = [
 		giant: true,
 		name: "雷鸣剑",
 	},
-	// {
-	// 	power: 50,
-	// 	element: 32,
-	// 	attack: 835,
-	// 	powerP: 10,
-	// 	criticalP: 5,
-	// 	skillA: [30],
-	// 	giant: true,
-	// 	name: "升级团武-属强",
-	// },
-	// {
-	// 	power: 50,
-	// 	attack: 835,
-	// 	attackP: 15,
-	// 	powerP: 10,
-	// 	criticalP: 5,
-	// 	skillA: [30],
-	// 	giant: true,
-	// 	name: "升级团武双攻",
-	// },
 	{
+		type: "currency",
+		power: 50,
+		element: 32,
+		attack: 835,
+		powerP: 10,
+		criticalP: 5,
+		skillA: [30],
+		giant: true,
+		name: "升级团武-属强",
+	},
+	{
+		type: "currency",
+		power: 50,
+		attack: 835,
+		attackP: 15,
+		powerP: 10,
+		criticalP: 5,
+		skillA: [30],
+		giant: true,
+		name: "升级团武双攻",
+	},
+	{
+		type: "light",
 		power: 50,
 		attack: 791,
 		element: 50,
@@ -439,58 +452,64 @@ const arms = [
 		skillA: [2],
 		name: "千年之光",
 	},
-	// {
-	// 	power: 50,
-	// 	attack: 791,
-	// 	criticalP: 5,
-	// 	critical: 143,
-	// 	add: 33,
-	// 	attackP: 20,
-	// 	name: "无轩",
-	// },
-	// {
-	// 	power: 50,
-	// 	attack: 791,
-	// 	criticalP: 8,
-	// 	critical: 100,
-	// 	criticalA: 30,
-	// 	increase: 20,
-	// 	name: "血之挽歌",
-	// },
-	// {
-	// 	power: 75,
-	// 	element: 130,
-	// 	critical: 2,
-	// 	attack: 857,
-	// 	giant: true,
-	// 	name: "邪龙魔剑",
-	// },
-	// {
-	// 	power: 75,
-	// 	attack: 857,
-	// 	critical: 2,
-	// 	increase: 65,
-	// 	giant: true,
-	// 	name: "幸存者",
-	// },
-	// {
-	// 	power: 75,
-	// 	attack: 857,
-	// 	critical: 2,
-	// 	eAdd: 25,
-	// 	giant: true,
-	// 	name: "梵天剑",
-	// },
-	// {
-	// 	power: 75,
-	// 	attack: 857,
-	// 	critical: 2,
-	// 	element: 35,
-	// 	eAdd: 25,
-	// 	giant: true,
-	// 	name: "梵天剑-红眼剑魔",
-	// },
-];
+	{
+		type: "light",
+		power: 50,
+		attack: 791,
+		criticalP: 5,
+		critical: 143,
+		add: 33,
+		attackP: 20,
+		name: "无轩",
+	},
+	{
+		type: "light",
+		power: 50,
+		attack: 791,
+		criticalP: 8,
+		critical: 100,
+		criticalA: 30,
+		increase: 20,
+		name: "血之挽歌",
+	},
+	{
+		type: "huge",
+		power: 75,
+		element: 130,
+		critical: 2,
+		attack: 857,
+		giant: true,
+		name: "邪龙魔剑",
+	},
+	{
+		type: "huge",
+		power: 75,
+		attack: 857,
+		critical: 2,
+		increase: 65,
+		giant: true,
+		name: "幸存者",
+	},
+	{
+		type: "huge",
+		power: 75,
+		attack: 857,
+		critical: 2,
+		eAdd: 25,
+		giant: true,
+		name: "梵天剑",
+	},
+	{
+		type: "huge",
+		power: 75,
+		attack: 857,
+		critical: 2,
+		element: 35,
+		eAdd: 25,
+		giant: true,
+		name: "梵天剑-红眼剑魔",
+	},
+].filter((item) => model.arms.includes(item.type));
 const lefts = [
 	{
 		power: 29,
@@ -586,4 +605,8 @@ for (let i in armors) {
 result.sort((a, b) => b.hurt - a.hurt);
 for (let item of result) {
 	console.log(((item.hurt / result[0].hurt) * 100).toFixed(2) + "%", item.name);
+}
+
+function randomNum() {
+	// 生成50个0-100的随机数
 }
